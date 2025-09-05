@@ -4,9 +4,9 @@ import json
 import streamlit as st
 
 aip_proxy = os.environ.get('это не нужно')
-my_api_key = os.environ.get('SvVKRpyeo1EUf2ZY7GaOc6')
+my_api_key = os.environ.get('blabla')
 
-client = OpenAI(api_key="SvVKRpyeo1EUf2ZY7GaOc6")
+client = OpenAI(api_key="blabla")
 
 pivis = [
     {"name": "Guinness Draught", "type": "Stout", "abv": "4.2%",
