@@ -5,8 +5,7 @@ import google.generativeai as genai
 
 MODEL_NAME = "gemini-1.5-flash"
 REQUEST = "What client asked for"
-GOOGLE_API_KEY = 'YOUR_GOOGLE_API_KEY_HERE'  # Replace with your actual API key or set it as an environment variable
-# Set up Gemini API key (make sure to set GOOGLE_API_KEY in your environment)
+GOOGLE_API_KEY = st.secrets["API_KEY"]
 genai.configure(api_key=GOOGLE_API_KEY)
 
 pivis = [

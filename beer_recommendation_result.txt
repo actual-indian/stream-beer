@@ -36,3 +36,22 @@
   "token_usage": null
 }
 ---
+{
+  "model": "gemini-1.5-flash",
+  "request": "I want something fresh",
+  "prompt": "\nGoal: Act as a beer expert to provide recommendations in a structured JSON format.\n\nRules:\n\nNon-beer topics: Respond with {\"error\": \"I am a beer assistant and cannot help with that.\"}\nBeer requests: Respond with a JSON object: {\"recommendations\": [...]}.\n\nList 1-2 beers from the Available beers list if a match is found.\n\nReturn an empty list [] if no good match is found.\n\nEach recommended beer must have two keys: 'name' (from the list) and 'reason'.\n\nInput:\nUser request: I want something fresh\nAvailable beers:\n[\n  {\n    \"name\": \"Guinness Draught\",\n    \"type\": \"Stout\",\n    \"abv\": \"4.2%\",\n    \"description\": \"Creamy, smooth body with roasted malt and coffee notes\"\n  },\n  {\n    \"name\": \"Heineken\",\n    \"type\": \"Lager\",\n    \"abv\": \"5.0%\",\n    \"description\": \"Crisp, clean lager with a light bitterness\"\n  },\n  {\n    \"name\": \"Sierra Nevada Pale Ale\",\n    \"type\": \"Pale Ale\",\n    \"abv\": \"5.6%\",\n    \"description\": \"Bold hops with citrus and pine aroma\"\n  },\n  {\n    \"name\": \"Blue Moon Belgian White\",\n    \"type\": \"Witbier\",\n    \"abv\": \"5.4%\",\n    \"description\": \"Smooth wheat beer with hints of orange and coriander\"\n  },\n  {\n    \"name\": \"Budweiser\",\n    \"type\": \"Lager\",\n    \"abv\": \"5.0%\",\n    \"description\": \"Light-bodied lager with subtle malt sweetness\"\n  },\n  {\n    \"name\": \"Stella Artois\",\n    \"type\": \"Pilsner\",\n    \"abv\": \"5.2%\",\n    \"description\": \"Crisp pilsner with a slightly bitter, dry finish\"\n  },\n  {\n    \"name\": \"Samuel Adams Boston Lager\",\n    \"type\": \"Lager\",\n    \"abv\": \"5.0%\",\n    \"description\": \"Balanced malt sweetness with a smooth hop bite\"\n  },\n  {\n    \"name\": \"Hoegaarden\",\n    \"type\": \"Witbier\",\n    \"abv\": \"4.9%\",\n    \"description\": \"Refreshing wheat beer with citrus and spice notes\"\n  },\n  {\n    \"name\": \"Chimay Blue\",\n    \"type\": \"Belgian Strong Ale\",\n    \"abv\": \"9.0%\",\n    \"description\": \"Rich, dark ale with caramel, spice, and dark fruit flavors\"\n  },\n  {\n    \"name\": \"Pilsner Urquell\",\n    \"type\": \"Pilsner\",\n    \"abv\": \"4.4%\",\n    \"description\": \"Classic Czech pilsner with a crisp, floral hop taste\"\n  },\n  {\n    \"name\": \"Corona Extra\",\n    \"type\": \"Lager\",\n    \"abv\": \"4.6%\",\n    \"description\": \"Light and refreshing with a smooth, mild flavor\"\n  },\n  {\n    \"name\": \"Weihenstephaner Hefeweissbier\",\n    \"type\": \"Hefeweizen\",\n    \"abv\": \"5.4%\",\n    \"description\": \"Banana and clove aromas with a smooth wheat body\"\n  },\n  {\n    \"name\": \"Dogfish Head 90 Minute IPA\",\n    \"type\": \"Imperial IPA\",\n    \"abv\": \"9.0%\",\n    \"description\": \"Strong hop character with rich malt backbone\"\n  },\n  {\n    \"name\": \"Bass Pale Ale\",\n    \"type\": \"Pale Ale\",\n    \"abv\": \"5.1%\",\n    \"description\": \"Balanced caramel malt with earthy English hops\"\n  },\n  {\n    \"name\": \"Delirium Tremens\",\n    \"type\": \"Belgian Strong Ale\",\n    \"abv\": \"8.5%\",\n    \"description\": \"Spicy, fruity ale with a warming finish\"\n  },\n  {\n    \"name\": \"Lagunitas IPA\",\n    \"type\": \"IPA\",\n    \"abv\": \"6.2%\",\n    \"description\": \"Hoppy IPA with floral and citrus zest notes\"\n  },\n  {\n    \"name\": \"Goose Island Bourbon County Stout\",\n    \"type\": \"Imperial Stout\",\n    \"abv\": \"14.7%\",\n    \"description\": \"Thick, rich stout with chocolate, bourbon, and vanilla\"\n  },\n  {\n    \"name\": \"Paulaner Salvator\",\n    \"type\": \"Doppelbock\",\n    \"abv\": \"7.9%\",\n    \"description\": \"Malty and sweet with hints of caramel and toasted bread\"\n  },\n  {\n    \"name\": \"Newcastle Brown Ale\",\n    \"type\": \"Brown Ale\",\n    \"abv\": \"4.7%\",\n    \"description\": \"Smooth brown ale with nutty and caramel flavors\"\n  },\n  {\n    \"name\": \"Founders All Day IPA\",\n    \"type\": \"Session IPA\",\n    \"abv\": \"4.7%\",\n    \"description\": \"Light-bodied, refreshing IPA with citrusy hops\"\n  }\n]\n",
+  "result": {
+    "recommendations": [
+      {
+        "name": "Corona Extra",
+        "reason": "It is a light and refreshing lager."
+      },
+      {
+        "name": "Heineken",
+        "reason": "It is a crisp and clean lager."
+      }
+    ]
+  },
+  "token_usage": null
+}
+---
