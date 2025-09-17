@@ -9,7 +9,7 @@ genai.configure(api_key=api_key)
 
 # load data and prompt
 beer_data = load_data("beers.csv")
-beer_prompt = load_prompt("beer_prompt_v2.md")
+beer_prompt = load_prompt("beer_prompt_v1.md")
 
 
 def create_sidebar():
