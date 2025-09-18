@@ -3,7 +3,7 @@ import pandas as pd
 
 
 @st.cache_data(ttl=86400)
-def load_data(file_path):
+def load_csv_data(file_path):
     try:
         df = pd.read_csv(file_path)
         return df

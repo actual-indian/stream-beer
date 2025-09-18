@@ -1,6 +1,6 @@
 import streamlit as st
 import google.generativeai as genai
-from utils import load_data, load_prompt
+from utils import load_csv_data, load_prompt
 
 # load config
 model_name = "gemini-1.5-flash"
@@ -8,7 +8,7 @@ api_key = st.secrets["GOOGLE_API_KEY"]
 genai.configure(api_key=api_key)
 
 # load data and prompt
-beer_data = load_data("beers.csv")
+beer_data = load_csv_data("beers.csv").drop(columns=["Product Image"], errors="ignore")
 beer_prompt = load_prompt("beer_prompt_v1.md")
 
 
@@ -40,6 +40,7 @@ def main():
     st.set_page_config(page_title="Valhalla Beer Club", page_icon="🍺")
     create_sidebar()
     st.title("🍺 Valhalla Beer Chat")
+    st.caption("⚠️ This app is a prototype and things may change in the future")
 
     if "messages" not in st.session_state:
         st.session_state.messages = []
@@ -58,13 +59,13 @@ def main():
                 with st.spinner("Finding the perfect pint for you..."):
                     try:
                         model = genai.GenerativeModel(model_name)
-                        beer_data_str = beer_data.to_string(index=False)
+                        beer_data_json = beer_data.to_json(orient="records", lines=True)
                         full_prompt = f"""
 {beer_prompt}
-Available beers:{beer_data_str}
+Available beers:{beer_data_json}
 User input: {prompt}
-Provide beer recommendation based on the user input and available beer data. 
-Always stick to the beer topic. Adapt to user language and respond in it. 
+Provide beer recommendation based on the user input and available beer data.
+Always stick to the beer topic. Adapt to user language and respond in it.
 """
 
                         response = model.generate_content(full_prompt)
