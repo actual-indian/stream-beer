@@ -3,7 +3,7 @@ import google.generativeai as genai
 from utils import load_csv_data, load_prompt
 
 # load config
-model_name = "gemini-1.5-flash"
+model_name = "gemini-2.5-flash-lite"
 api_key = st.secrets["GOOGLE_API_KEY"]
 genai.configure(api_key=api_key)
 
@@ -14,7 +14,60 @@ beer_prompt = load_prompt("beer_prompt_v1.md")
 
 def create_sidebar():
     with st.sidebar:
-
+        st.markdown(
+            """
+            <style>
+                /* Collapse button (inside sidebar) */
+                [data-testid="stSidebarCollapseButton"] [data-testid="stIconMaterial"] {
+                    opacity: 0 !important;
+                }
+                [data-testid="stSidebarCollapseButton"] button {
+                    position: relative;
+                    min-width: 80px;
+                    padding: 0 8px;
+                }
+                [data-testid="stSidebarCollapseButton"] button::after {
+                    content: "Feedback";
+                    font-weight: 500;
+                    font-size: 14px;
+                    color: #444;
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    pointer-events: none;
+                    white-space: nowrap;
+                }
+                /* Expand button (outside sidebar) */
+                [data-testid="stExpandSidebarButton"] [data-testid="stIconMaterial"] {
+                    opacity: 0 !important;
+                }
+                [data-testid="stExpandSidebarButton"] button {
+                    position: relative;
+                    min-width: 80px;
+                    height: 36px;
+                    background: #fff;
+                    border: 1px solid #ccc;
+                    border-radius: 6px;
+                    padding: 0 8px;
+                }
+                [data-testid="stExpandSidebarButton"] button::after {
+                    content: "Feedback";
+                    font-weight: 500;
+                    font-size: 14px;
+                    color: #444;
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    pointer-events: none;
+                    white-space: nowrap;
+                }
+            </style>
+            """,
+            unsafe_allow_html=True
+        )
+        # st.expander("Feedback & Contacts", expanded=True)
         st.image("logo.jpg", use_container_width=True)
 
         st.divider()
@@ -37,8 +90,10 @@ def create_sidebar():
 
 
 def main():
+
     st.set_page_config(page_title="Valhalla Beer Club", page_icon="🍺")
     create_sidebar()
+
     st.title("🍺 Valhalla Beer Chat")
     st.caption("⚠️ This app is a prototype and things may change in the future")
 
