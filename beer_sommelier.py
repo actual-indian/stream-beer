@@ -14,59 +14,7 @@ beer_prompt = load_prompt("beer_prompt_v1.md")
 
 def create_sidebar():
     with st.sidebar:
-        st.markdown(
-            """
-            <style>
-                /* Collapse button (inside sidebar) */
-                [data-testid="stSidebarCollapseButton"] [data-testid="stIconMaterial"] {
-                    opacity: 0 !important;
-                }
-                [data-testid="stSidebarCollapseButton"] button {
-                    position: relative;
-                    min-width: 80px;
-                    padding: 0 8px;
-                }
-                [data-testid="stSidebarCollapseButton"] button::after {
-                    content: "Feedback";
-                    font-weight: 500;
-                    font-size: 14px;
-                    color: #444;
-                    position: absolute;
-                    left: 50%;
-                    top: 50%;
-                    transform: translate(-50%, -50%);
-                    pointer-events: none;
-                    white-space: nowrap;
-                }
-                /* Expand button (outside sidebar) */
-                [data-testid="stExpandSidebarButton"] [data-testid="stIconMaterial"] {
-                    opacity: 0 !important;
-                }
-                [data-testid="stExpandSidebarButton"] button {
-                    position: relative;
-                    min-width: 80px;
-                    height: 36px;
-                    background: #fff;
-                    border: 1px solid #ccc;
-                    border-radius: 6px;
-                    padding: 0 8px;
-                }
-                [data-testid="stExpandSidebarButton"] button::after {
-                    content: "Feedback";
-                    font-weight: 500;
-                    font-size: 14px;
-                    color: #444;
-                    position: absolute;
-                    left: 50%;
-                    top: 50%;
-                    transform: translate(-50%, -50%);
-                    pointer-events: none;
-                    white-space: nowrap;
-                }
-            </style>
-            """,
-            unsafe_allow_html=True
-        )
+
         # st.expander("Feedback & Contacts", expanded=True)
         st.image("logo.jpg", use_container_width=True)
 
@@ -84,10 +32,6 @@ def create_sidebar():
         st.write("**John:** Beer Viking")
         st.write("**Anna:** Beer Valkyrie")
 
-        st.divider()
-
-        st.markdown("📝 **[Submit Feedback](https://docs.google.com/forms/u/1/d/e/1FAIpQLSeBKl46W85lykhEDy4HQtEdpUoRKg1LcBjidLKZVbhrySy16g/viewform?usp=header)**")
-
 
 def main():
 
@@ -96,6 +40,7 @@ def main():
 
     st.title("🍺 Valhalla Beer Chat")
     st.caption("⚠️ This app is a prototype and things may change in the future")
+    st.markdown("📝 **[Submit Feedback](https://docs.google.com/forms/u/1/d/e/1FAIpQLSeBKl46W85lykhEDy4HQtEdpUoRKg1LcBjidLKZVbhrySy16g/viewform?usp=header)**")
 
     if "messages" not in st.session_state:
         st.session_state.messages = []
